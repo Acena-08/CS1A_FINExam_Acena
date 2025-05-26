@@ -1,10 +1,15 @@
-const numbersInput = prompt("Enter numbers separated by commas (e.g. 24,65,21,5,9,32,42,80,57):");
-const namesInput = prompt("Enter names separated by commas (e.g. Zenvo,Erica,Jordie,Alicia,Redon):");
+// Get numbers and names arrays from user input
+let numbers = prompt().split(",").map(n => Number(n.trim()));
+let names = prompt().split(",").map(n => n.trim());
 
-const numbers = numbersInput.split(',').map(Number);
-const names = namesInput.split(',');
+// Merge numbers and names into one array and log it
+let merged = numbers.concat(names);
+console.log(merged);
 
-const mergedArray = [...numbers, ...names];
-console.log("Merged Array:", mergedArray);
-console.log("Numbers Sorted Descending:", [...numbers].sort((a, b) => b - a));
-console.log("Names Sorted Alphabetically:", [...names].sort());
+// Sort numbers in descending order and log them
+numbers.sort((a, b) => b - a);
+console.log(numbers);
+
+// Sort names alphabetically and log them
+names.sort();
+console.log(names);
