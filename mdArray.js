@@ -1,9 +1,14 @@
-const subArray1Input = prompt("Enter names separated by commas (e.g. Genevieve,Juan,Luna,Gabriel,Elise):");
-const subArray2Input = prompt("Enter ages separated by commas (e.g. 24,65,21,5,9):");
+// Create a multi-dimensional array [name, age] using prompt()
+let subArray1 = prompt().split(",").map(n => n.trim());
+let subArray2 = prompt().split(",").map(n => Number(n.trim()));
 
-const subArray1 = subArray1Input.split(',');
-const subArray2 = subArray2Input.split(',').map(Number);
+// Combine the two arrays into a single array of [name, age] pairs
+let restructured = [];
+for (let i = 0; i < subArray1.length; i++) {
+  restructured.push([subArray1[i], subArray2[i]]);
+}
 
-const restructured = subArray1.map((name, index) => [name, subArray2[index]]);
-console.log("Restructured Array:");
-restructured.forEach(pair => console.log(pair));
+// Print each [name, age] pair to the console
+for (let pair of restructured) {
+  console.log(pair);
+}
